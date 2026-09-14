@@ -34,7 +34,37 @@
 
         <section id="kontakt">
             <h2>Kontakt</h2>
-            <p>Napisz do mnie</p>
+
+            <form id="formularz-kontaktowy">
+                <div class="pole">
+                    <label for="imie">Imię</label>
+                    <input type="text" name="imie" id="imie" placeholder="Jak masz na imie?">
+                </div>
+
+                 <div class="pole">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" id="email" placeholder="adres@example.com">
+                </div>
+
+                <div class="pole">
+                    <label for="temat">Temat</label>
+                    <select name="temat" id="temat">
+                        <option value="">-wybierz-</option>
+                        <option value="wspolpraca">Współpraca</option>
+                        <option value="pytanie">Pytanie</option>
+                        <option value="inne">Inne</option>
+                    </select>
+                </div>
+
+                <div class="pole">
+                    <label for="tresc">Wiadomość</label>
+                    <textarea name="tresc" id="tresc" rows="4" placeholder="Treść wiadomości"></textarea>
+                </div>
+
+                <button type="submit">Wyślij</button>
+            </form>
+
+            <div id="komunikat"></div>
         </section>
     </main>
 
