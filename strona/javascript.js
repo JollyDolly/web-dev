@@ -61,3 +61,17 @@ formularz.addEventListener("submit", function (event) {
     formularz.reset();
 
 });
+
+let przycisk = document.querySelector("#motyw");
+
+przycisk.addEventListener("click", function(){
+    let ciemny = document.body.classList.toggle("ciemny");
+
+    if(ciemny){
+        przycisk.textContent = "Jasny motyw";
+    }
+    else{
+        przycisk.textContent = "Ciemny motyw";
+    }
+
+});
