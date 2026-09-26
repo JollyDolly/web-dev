@@ -7,3 +7,10 @@ const umiejetnosci = [
     "Praca w zespole"
 ];
 
+
+let lista = document.querySelector("#lista-umiejetnosci");
+for (let umiejetnosc of umiejetnosci) {
+    let li = document.createElement("li");
+    li.textContent = umiejetnosc;
+    lista.appendChild(li);
+}
