@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wizytówka</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Yehor Orieshnyk</h1>
+        <p class="podtytul">Interesuję się sportem, muzyką oraz programowaniem.</p>
+        <nav>
+            <a href="#about">O mnie</a>
+            <a href="#skills">Umiejętności</a>
+            <a href="#contact">Kontakt</a>
+            <button type="button" id="motyw">Ciemny motyw</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>O mnie</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias ducimus fugiat adipisci. Tempore iusto praesentium corporis ea quo ullam explicabo! Saepe eius odit minima, commodi illo quos soluta dolores possimus!</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur amet, atque in perferendis cumque exercitationem recusandae esse possimus mollitia nulla modi necessitatibus adipisci aut asperiores quia. Quia reiciendis laborum corporis?</p> 
+        </section>
+
+        <section id="umiejetnosci">
+            <h2>Umiejętności</h2>
+            <ul id="lista-umiejetnosci">
+                
+            </ul>
+        </section>
+
+        <section id="kontakt">
+            <h2>Kontakt</h2>
+
+            <form id="formularz-kontaktowy">
+                <div class="pole">
+                    <label for="imie">Imię</label>
+                    <input type="text" name="imie" id="imie" placeholder="Jak masz na imie?">
+                </div>
+
+                 <div class="pole">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="adres@example.com">
+                </div>
+
+                <div class="pole">
+                    <label for="temat">Temat</label>
+                    <select name="temat" id="temat">
+                        <option value="">-wybierz-</option>
+                        <option value="wspolpraca">Współpraca</option>
+                        <option value="pytanie">Pytanie</option>
+                        <option value="inne">Inne</option>
+                    </select>
+                </div>
+
+                <div class="pole">
+                    <label for="tresc">Wiadomość</label>
+                    <textarea name="tresc" id="tresc" rows="4" placeholder="Treść wiadomości"></textarea>
+                </div>
+
+                <button type="submit">Wyślij</button>
+            </form>
+
+            <div id="komunikat"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>2026 - Yehor Orieshnyk. Zadanie MB3 z przedmiotu Programowanie aplikacji zaawansowanych.</p>
+    </footer>
+
+    <script src="javascript.js"></script>
+
+</body>
+</html>
