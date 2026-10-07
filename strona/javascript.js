@@ -1,3 +1,4 @@
+
 const umiejetnosci = [
     "HTML",
     "CSS",
@@ -7,8 +8,8 @@ const umiejetnosci = [
     "Praca w zespole"
 ];
 
-
 let lista = document.querySelector("#lista-umiejetnosci");
+
 for (let umiejetnosc of umiejetnosci) {
     let li = document.createElement("li");
     li.textContent = umiejetnosc;
@@ -16,62 +17,53 @@ for (let umiejetnosc of umiejetnosci) {
 }
 
 let formularz = document.querySelector("#formularz-kontaktowy");
-let komuniakt = document.querySelector("#komunikat");
+let komunikat = document.querySelector("#komunikat");
 
-function pokazKomunikat(tresc,rodzaj){
-    komuniakt.textContent = tresc;
-    komuniakt.classList.remove("blad","sukces");
-    komuniakt.classList.add(rodzaj);
-}
+const pokazKomunikat = (tresc, rodzaj) => {
+    komunikat.textContent = tresc;
+    komunikat.classList.remove("blad", "sukces");
+    komunikat.classList.add(rodzaj);
+};
 
-formularz.addEventListener("submit", function (event) {
-        event.preventDefault();
+formularz.addEventListener("submit", (event) => {
+    event.preventDefault();
 
-        let imie = document.querySelector("#imie").value.trim();
-        let email = document.querySelector("#email").value.trim();
-        let temat = document.querySelector("#temat").value.trim();
-        let wiadomosc = document.querySelector("#tresc").value.trim();
+    const dane = Object.fromEntries(new FormData(formularz));
+    const {imie,email,temat} = dane;
 
-        if(imie === ""){
-            pokazKomunikat("Podaj imie. ", "blad");
-            return;
-        }
+    if (imie.trim() === "") {
+        pokazKomunikat("Podaj imię.", "blad");
+        return;
+    }
 
-        if(email === ""){
-            pokazKomunikat("Podaj adres e-mail. ", "blad");
-            return;
-        }
+    if (email.trim() === "") {
+        pokazKomunikat("Podaj adres e-mail.", "blad");
+        return;
+    }
 
-        if(temat === ""){
-            pokazKomunikat("Wybierz temat wiadomosci" , "blad");
-            return;
-        }
+    if (temat.trim() === "") {
+        pokazKomunikat("Wybierz temat wiadomości.", "blad");
+        return;
+    }
 
-        pokazKomunikat("Dziekuje, " + imie + ". Wiadomosc na temat " + temat + " zostala przyjeta." , "sukces");
+    pokazKomunikat(
+        `Dziękuję, ${imie}. Wiadomość na temat ${temat} została przyjęta.`,
+        "sukces"
+    );
 
-    console.log("Dane z formularza: ",{
-
+    console.log("Dane z formularza:", {
         imie: imie,
         email: email,
-        temat: temat,
-        tresc: tresc
-
+        temat: temat
     });
 
     formularz.reset();
-
 });
 
 let przycisk = document.querySelector("#motyw");
 
-przycisk.addEventListener("click", function(){
+przycisk.addEventListener("click", () => {
     let ciemny = document.body.classList.toggle("ciemny");
 
-    if(ciemny){
-        przycisk.textContent = "Jasny motyw";
-    }
-    else{
-        przycisk.textContent = "Ciemny motyw";
-    }
-
+    przycisk.textContent = ciemny ? "Jasny motyw" : "Ciemny motyw";
 });
