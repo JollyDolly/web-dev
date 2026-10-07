@@ -1,11 +1,11 @@
 
 const umiejetnosci = [
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "SQL",
-    "Git",
-    "Praca w zespole"
+    { nazwa: "HTML", poziom: 5, kategori: "frontend" },
+    { nazwa: "CSS", poziom: 5, kategori: "frontend" },
+    { nazwa: "JavaScript", poziom: 4, kategori: "frontend" },
+    { nazwa: "SQL", poziom: 4, kategori: "backend" },
+    { nazwa: "Git", poziom: 3, kategori: "narzedzia" },
+    { nazwa: "Praca w zespole", poziom: 4, kategori: "miekkie" }
 ];
 
 let lista = document.querySelector("#lista-umiejetnosci");
