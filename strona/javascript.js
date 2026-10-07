@@ -1,24 +1,8 @@
+import { umiejetnosci, ADRES_API } from "./dane.js";
+import { budujListe, filtrujPoKategorii, podsumowanie } from "./umiejetnosci.js";
 
-const umiejetnosci = [
-    { nazwa: "HTML", poziom: 5, kategoria: "frontend" },
-    { nazwa: "CSS", poziom: 5, kategoria: "frontend" },
-    { nazwa: "JavaScript", poziom: 4, kategoria: "frontend" },
-    { nazwa: "SQL", poziom: 4, kategoria: "backend" },
-    { nazwa: "Git", poziom: 3, kategoria: "narzedzia" },
-    { nazwa: "Praca w zespole", poziom: 4, kategoria: "miekkie" }
-];
 
 let lista = document.querySelector("#lista-umiejetnosci");
-
-const budujListe = (lista) =>
-    lista
-        .map(({ nazwa, poziom }) => `
-            <li>
-                <span class="nazwa">${nazwa}</span>
-                <span class="poziom" title="Poziom ${poziom} z 5">${"●".repeat(poziom)}${"○".repeat(5 - poziom)}</span>
-            </li>
-        `)
-        .join("");
 
 const listaEl = document.querySelector("#lista-umiejetnosci");
 listaEl.innerHTML = budujListe(umiejetnosci);
@@ -75,28 +59,6 @@ przycisk.addEventListener("click", () => {
 
     przycisk.textContent = ciemny ? "Jasny motyw" : "Ciemny motyw";
 });
-
-const filtrujPoKategorii = (lista, kategoria) =>
-    kategoria === "wszystkie"
-        ? [...lista]
-        : lista.filter(u => u.kategoria === kategoria);
-
-
-const sredniPoziom = (lista) => {
-    if (lista.length === 0) {
-        return 0;
-    }
-
-    const suma = lista.reduce((razem, { poziom }) => razem + poziom, 0);
-    return Math.round((suma / lista.length) * 10) / 10;
-};
-
-const podsumowanie = (lista) =>
-    lista.length === 0
-        ? "Brak umiejętności w tej kategorii."
-        : `Umiejętności: ${lista.length} · średni poziom: ${sredniPoziom(lista)
-
-        }`;
 
 const podsumowanieEl = document.querySelector("#podsumowanie");
 const filtryEl = document.querySelector("#filtry");
