@@ -10,11 +10,19 @@ const umiejetnosci = [
 
 let lista = document.querySelector("#lista-umiejetnosci");
 
-for (let umiejetnosc of umiejetnosci) {
-    let li = document.createElement("li");
-    li.textContent = umiejetnosc;
-    lista.appendChild(li);
-}
+const budujListe = (lista) =>
+    lista
+        .map(({ nazwa, poziom }) => `
+            <li>
+                <span class="nazwa">${nazwa}</span>
+                <span class="poziom" title="Poziom ${poziom} z 5">${"●".repeat(poziom)}${"○".repeat(5 - poziom)}</span>
+            </li>
+        `)
+        .join("");
+
+const listaEl = document.querySelector("#lista-umiejetnosci");
+listaEl.innerHTML = budujListe(umiejetnosci);
+
 
 let formularz = document.querySelector("#formularz-kontaktowy");
 let komunikat = document.querySelector("#komunikat");
