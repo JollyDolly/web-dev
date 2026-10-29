@@ -47,6 +47,13 @@ const oznaczZrobione = async (tekstNumeru) => {
     console.log(`Zadanie nr ${numer} oznaczone jako zrobione: ${nowe[numer - 1].tekst}`);
 };
 
+const pokazPomoc = () => {
+    console.log("Użycie:");
+    console.log(" npm run lista");
+    console.log(" npm run dodaj -- \"tekst zadania\"");
+    console.log(" npm run zrobione -- numer");
+};
+
 switch (komenda) {
     case "lista":
         await pokazListe();
@@ -57,5 +64,7 @@ switch (komenda) {
     case "zrobione":
         await oznaczZrobione(argument);
         break;
+    default:
+        pokazPomoc();
 }
 
